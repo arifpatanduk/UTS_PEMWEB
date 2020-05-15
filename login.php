@@ -16,7 +16,7 @@
 
     <body class="text-center">
         <form class="form-signin">
-            <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+            <img class="mb-4" src="img/math.png" alt="">
 
             <label for="inputName" class="sr-only">Nama</label>
             <input type="text" id="inputName" class="form-control" placeholder="Masukkan Nama" required autofocus>
