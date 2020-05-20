@@ -1,3 +1,16 @@
+<?php
+
+session_start();
+$nilai = '';
+
+if ($_POST['jawab'] == $_SESSION['hasil']) {
+    $nilai = 'BENAR';
+}
+elseif ($_POST['jawab'] != $_SESSION['hasil']) {
+    $nilai = 'SALAH';
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,8 +27,8 @@
         <div class="card">
             <div class="card-header">
                 <center>
-                    Hello <strong>ARIF</strong>, selamat jawaban Anda <strong>BENAR</strong>
-                    
+                    Hello <strong>ARIF</strong>, selamat jawaban Anda 
+                    <strong><?= $nilai; ?></strong>
                 </center>    
             </div>
 
@@ -35,10 +48,12 @@
                     </h3>
                     
                     <!-- <form class="form-inline mt-2" method="POST" action=""> -->
+                    <a href="test.php">    
                         <button type="submit" name="submit" class="btn btn-primary mb-2">
                             Soal Selanjutnya <i class="fa fa-arrow-circle-right"></i>
-                        <!-- </button> -->
-                    </form>
+                        </button>
+                    </a>
+                    <!-- </form> -->
                 </center>    
             </div>
         </div>

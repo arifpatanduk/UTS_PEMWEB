@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mathematics Game</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    
     <script src="https://kit.fontawesome.com/5994dec7bb.js" crossorigin="anonymous"></script>
 </head>
 <body>  
@@ -32,10 +32,14 @@
                             <i class="fas fa-coins"></i> 5
                         </span>
                     </h3>
+                    <!-- <form class="form-inline mt-2" method="POST" action=""> -->
+                    <button type="submit" name="submit" class="btn btn-primary mb-2 mt-2">
+                            START GAME <i class="fas fa-flag-checkered"></i>
+                        </button>
+                    <!-- </form> -->
                     <p>
                         Bukan Anda? Klik <a href="">di sini</a>
                     </p>
-                    
                 </center>    
             </div>
         </div>

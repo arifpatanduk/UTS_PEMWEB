@@ -1,3 +1,27 @@
+<?php
+
+require 'function.php';
+
+if (isset($_POST['submit'])) {
+    if (login($_POST) > 0 ) {
+        echo "<script>
+        alert('Berhasil login')
+        document.location.href = 'index.php'
+        </script>
+        ";
+    }
+    else {
+        echo "<script>
+        alert('Gagal login')
+        </script>
+        ";
+        echo mysqli_error($conn);
+    }
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -14,15 +38,15 @@
     </head>
 
     <body class="text-center">
-        <form class="form-signin">
+        <form class="form-signin" method="POST" action="">
             <img class="mb-4" src="img/math.png" alt="">
 
             <label for="inputName" class="sr-only">Nama</label>
-            <input type="text" id="inputName" class="form-control" placeholder="Masukkan Nama" required autofocus>
+            <input type="text" name="nama" class="form-control" placeholder="Masukkan Nama" required autofocus>
             <label for="inputEmail" class="sr-only">Email</label>
-            <input type="email" id="inputEmail" class="form-control" placeholder="Masukkan Email" required>
+            <input type="email" name="email" class="form-control" placeholder="Masukkan Email" required>
             
-            <button class="btn btn-lg btn-primary btn-block mt-3" type="submit">SUBMIT</button>
+            <button class="btn btn-lg btn-primary btn-block mt-3" type="submit" name="submit">SUBMIT</button>
             <p class="mt-5 mb-3 text-muted">&copy; Arif Wiranata Patanduk</p>
           </form>
         

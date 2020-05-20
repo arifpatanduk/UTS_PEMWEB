@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mathematics Game</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    
+    <script src="https://kit.fontawesome.com/5994dec7bb.js" crossorigin="anonymous"></script>
 </head>
 <body>  
 
@@ -12,9 +14,14 @@
         <div class="card">
             <div class="card-header">
                 Hello <strong>ARIF</strong> tetap semangat ya! You can do the best! 
-                <br>
-                <span class="badge badge-danger">LIVES : 5</span>
-                <span class="badge badge-info">SCORE : 5</span>
+                <div>
+                    <span class="badge badge-danger">
+                        <i class="fas fa-heart"></i> 5
+                    </span>
+                    <span class="badge badge-success">
+                        <i class="fas fa-coins"></i> 5
+                    </span>    
+                </div>
             </div>
             <div class="card-body">
                 <h4>Berapakah 5 + 7 ?</h4>
