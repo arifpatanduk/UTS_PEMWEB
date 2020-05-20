@@ -14,7 +14,7 @@
         <div class="card">
             <div class="card-header">
                 <center>
-                    Hello <strong>ARIF</strong>, selamat jawaban Anda <strong>BENAR</strong>
+                    Hello <strong>ARIF</strong>, selamat datang kembali di permainan ini!
                     
                 </center>    
             </div>
@@ -31,14 +31,11 @@
                             <div style="font-size: 10px" class="mb-1">SCORE</div>
                             <i class="fas fa-coins"></i> 5
                         </span>
-                        
                     </h3>
+                    <p>
+                        Bukan Anda? Klik <a href="">di sini</a>
+                    </p>
                     
-                    <!-- <form class="form-inline mt-2" method="POST" action=""> -->
-                        <button type="submit" name="submit" class="btn btn-primary mb-2">
-                            Soal Selanjutnya <i class="fa fa-arrow-circle-right"></i>
-                        <!-- </button> -->
-                    </form>
                 </center>    
             </div>
         </div>
