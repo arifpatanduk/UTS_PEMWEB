@@ -1,7 +1,7 @@
 <?php 
 
 session_start();
-require 'function.php';
+
 $a = rand(0,20);
 $b = rand(0,20);
 $_SESSION['hasil'] = $a + $b;

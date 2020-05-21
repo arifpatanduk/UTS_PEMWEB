@@ -30,16 +30,18 @@ if (isset($_POST['submit'])) {
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Mathematics Game</title>
+        <title>Join - Mathematics Game</title>
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
         <link href="css/signin.css" rel="stylesheet">
-        
+        <link rel="icon" type="image/png" href="img/logo.png">
     </head>
 
     <body class="text-center">
         <form class="form-signin" method="POST" action="">
-            <img class="mb-4" src="img/math.png" alt="">
+            <img class="mb-4" src="img/logo.png" alt="">
+            <h4 class="font-weight-normal">Welcome to</h4>
+            <h2 class="mb-3">Mathematics Game</h2>
 
             <label for="inputName" class="sr-only">Nama</label>
             <input type="text" name="nama" class="form-control" placeholder="Masukkan Nama" required autofocus>

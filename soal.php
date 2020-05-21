@@ -1,3 +1,14 @@
+<?php 
+
+session_start();
+
+$a = rand(0,20);
+$b = rand(0,20);
+$_SESSION['hasil'] = $a + $b;
+$hasil = $_SESSION['hasil'];
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +16,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mathematics Game</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <link rel="icon" type="image/png" href="img/logo.png">
     
     <script src="https://kit.fontawesome.com/5994dec7bb.js" crossorigin="anonymous"></script>
 </head>
@@ -24,9 +37,9 @@
                 </div>
             </div>
             <div class="card-body">
-                <h4>Berapakah 5 + 7 ?</h4>
-                <form class="form-inline mt-2" method="POST" action="">
-                    <input type="number" class="form-control mb-2 mr-sm-2" id="jawab" placeholder="Jawaban...." name="email" required autofocus>
+                <h4>Berapakah <?= $a.' + '.$b; ?> ? </h4>
+                <form class="form-inline mt-2" method="POST" action="proses.php">
+                    <input type="number" class="form-control mb-2 mr-sm-2" id="jawab" placeholder="Jawaban...." name="jawab" required autofocus>
                     <button type="submit" name="submit" class="btn btn-primary mb-2">Submit</button>
                 </form>
             </div>
