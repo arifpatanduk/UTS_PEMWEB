@@ -7,7 +7,7 @@ if ( !isset($_COOKIE['join'])) {
     exit;
 }
 
-$nama = $_SESSION['nama'];
+$nama = $_COOKIE['nama'];
 $main = query("SELECT * FROM uts WHERE nama = '$nama' ");
 
 $a = rand(0,20);
@@ -15,7 +15,7 @@ $b = rand(0,20);
 $_SESSION['hasil'] = $a + $b;
 $hasil = $_SESSION['hasil'];
 
-
+$_SESSION['proses'] = 'yes';
 
 ?>
 

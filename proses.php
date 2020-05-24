@@ -3,12 +3,25 @@
 session_start();
 require "function.php";
 
-$tampil = proses($_POST);
+if ( isset($_POST['submit'])) {
+    $tampil = proses($_POST);
+}
+else{
+    header("Location:soal.php");
+    exit;
+}
 
-$nama = $_SESSION['nama'];
+$nama = $_COOKIE['nama'];
 $main = query("SELECT * FROM uts WHERE nama = '$nama' ");
 
+if ( $main['lives'] == '0') {
+    $_SESSION['gameOver'] = 'yes';
+    header("Location: gameOver.php");
+    exit;
+}
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +29,7 @@ $main = query("SELECT * FROM uts WHERE nama = '$nama' ");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mathematics Game</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    
     <script src="https://kit.fontawesome.com/5994dec7bb.js" crossorigin="anonymous"></script>
 </head>
 <body>  
@@ -44,13 +57,12 @@ $main = query("SELECT * FROM uts WHERE nama = '$nama' ");
                         
                     </h3>
                     
-                    <!-- <form class="form-inline mt-2" method="POST" action=""> -->
                     <a href="soal.php">    
                         <button type="submit" name="submit" class="btn btn-primary mb-2">
-                            Soal Selanjutnya <i class="fa fa-arrow-circle-right"></i>
+                            Soal Selanjutnya <i class="fas fa-forward"></i>
                         </button>
                     </a>
-                    <!-- </form> -->
+                    
                 </center>    
             </div>
         </div>

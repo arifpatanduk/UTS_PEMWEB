@@ -13,7 +13,7 @@ else if ( !isset($_COOKIE['join'])) {
     exit;
 }
 
-$nama = $_SESSION['nama'];
+$nama = $_COOKIE['nama'];
 $main = query("SELECT * FROM uts WHERE nama = '$nama' ");
 
 
@@ -24,7 +24,7 @@ $main = query("SELECT * FROM uts WHERE nama = '$nama' ");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mathematics Game</title>
+    <title>Welcome - Mathematics Game</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     
     <link rel="stylesheet" href="css/load.css">
@@ -48,8 +48,8 @@ $main = query("SELECT * FROM uts WHERE nama = '$nama' ");
                 <div class="card-header">
                     <center>
                         Hello 
-                        <strong> <?= $_SESSION['nama']; ?> </strong>, 
-                        selamat datang kembali di permainan ini!
+                        <strong> <?= $_COOKIE['nama']; ?> </strong>, 
+                        selamat datang di permainan ini!
                         
                     </center>    
                 </div>

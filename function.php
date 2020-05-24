@@ -27,19 +27,19 @@ function login($data){
     return mysqli_affected_rows($conn);
 }
 
-function updateLives() {
+function updateSalah() {
     global $conn;
-    $nama = $_SESSION['nama'];
+    $nama = $_COOKIE['nama'];
 
-    $query = "UPDATE uts SET lives = lives-1 WHERE nama = '$nama' ";
+    $query = "UPDATE uts SET lives = lives-1, score = score-2 WHERE nama = '$nama' ";
     mysqli_query($conn, $query);
 
     return mysqli_affected_rows($conn);
 }
 
-function updateScore() {
+function updateBenar() {
     global $conn;
-    $nama = $_SESSION['nama'];
+    $nama = $_COOKIE['nama'];
 
     $query = "UPDATE uts SET score = score+10 WHERE nama = '$nama' ";
     mysqli_query($conn, $query);
@@ -51,13 +51,22 @@ function proses($data){
     $jawab = $data['jawab'];
     $hasil = $_SESSION['hasil'];
     if ($jawab == $hasil ){
-        updateScore();
+        updateBenar();
         return 'selamat jawaban Anda <strong>BENAR</strong>';
     }
     elseif ( $jawab != $hasil) {
-        updateLives();
+        updateSalah();
         return 'maaf jawaban Anda <strong>SALAH</strong>';
     }
 }
 
+function ulang() {
+    global $conn;
+
+    $nama = $_COOKIE['nama'];
+    $query = "UPDATE uts SET score = 0, lives = 5 WHERE nama = '$nama' ";
+    mysqli_query($conn, $query);
+
+    return mysqli_affected_rows($conn);
+}
 ?>
