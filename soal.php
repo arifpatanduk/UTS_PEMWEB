@@ -1,11 +1,21 @@
 <?php 
 
 session_start();
+require "function.php";
+if ( !isset($_COOKIE['join'])) {
+    header("location: index.php");
+    exit;
+}
+
+$nama = $_SESSION['nama'];
+$main = query("SELECT * FROM uts WHERE nama = '$nama' ");
 
 $a = rand(0,20);
 $b = rand(0,20);
 $_SESSION['hasil'] = $a + $b;
 $hasil = $_SESSION['hasil'];
+
+
 
 ?>
 
@@ -29,10 +39,10 @@ $hasil = $_SESSION['hasil'];
                 Hello <strong>ARIF</strong> tetap semangat ya! You can do the best! 
                 <div>
                     <span class="badge badge-danger">
-                        <i class="fas fa-heart"></i> 5
+                        <i class="fas fa-heart"></i> <?= $main['lives']; ?>
                     </span>
                     <span class="badge badge-success">
-                        <i class="fas fa-coins"></i> 5
+                        <i class="fas fa-coins"></i> <?= $main['score']; ?>
                     </span>    
                 </div>
             </div>

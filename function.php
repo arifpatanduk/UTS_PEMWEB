@@ -2,6 +2,17 @@
 
 $conn = mysqli_connect('localhost', 'root', '', 'pemweb');
 
+function query($query) {
+    global  $conn;
+    
+    $result = mysqli_query($conn, $query);
+    $rows = [];
+    while ( $row = mysqli_fetch_assoc($result) ) {
+        $rows = $row;
+    }
+    return $rows;
+}
+
 function login($data){
     global $conn;
 
@@ -9,32 +20,44 @@ function login($data){
     $email = $data['email'];
 
     $query = "INSERT INTO uts VALUES 
-    ('$nama', '$email', 5, 0)";
+    ('', '$nama', '$email', 5, 0)";
 
     mysqli_query($conn, $query);
 
     return mysqli_affected_rows($conn);
 }
 
+function updateLives() {
+    global $conn;
+    $nama = $_SESSION['nama'];
 
-function acak(){
-    $a = rand(0,20);
-    $b = rand(0,20);
-    echo $a;
-    echo ' + ';
-    echo $b;
+    $query = "UPDATE uts SET lives = lives-1 WHERE nama = '$nama' ";
+    mysqli_query($conn, $query);
+
+    return mysqli_affected_rows($conn);
+}
+
+function updateScore() {
+    global $conn;
+    $nama = $_SESSION['nama'];
+
+    $query = "UPDATE uts SET score = score+10 WHERE nama = '$nama' ";
+    mysqli_query($conn, $query);
+
+    return mysqli_affected_rows($conn);
 }
 
 function proses($data){
     $jawab = $data['jawab'];
     $hasil = $_SESSION['hasil'];
     if ($jawab == $hasil ){
-        return true;
+        updateScore();
+        return 'selamat jawaban Anda <strong>BENAR</strong>';
     }
-    else {
-        return false;
+    elseif ( $jawab != $hasil) {
+        updateLives();
+        return 'maaf jawaban Anda <strong>SALAH</strong>';
     }
 }
-
 
 ?>

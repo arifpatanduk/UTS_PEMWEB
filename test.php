@@ -1,12 +1,17 @@
 <?php 
 
 session_start();
+require "function.php";
+$nama = $_SESSION['nama'];
+$result = mysqli_query($conn, "SELECT * from uts WHERE nama = '$nama' ");
+$row = mysqli_fetch_assoc($result);
+// var_dump($row);
 
-$a = rand(0,20);
-$b = rand(0,20);
-$_SESSION['hasil'] = $a + $b;
-$hasil = $_SESSION['hasil'];
-
+$nama = $_SESSION['nama'];
+echo $nama;
+$main = query("SELECT * FROM uts WHERE nama = '$nama' ");
+// var_dump($main['lives']);
+echo $main['lives'];
 ?>
 
 
@@ -19,8 +24,8 @@ $hasil = $_SESSION['hasil'];
 </head>
 <body>
     <form action="proses.php" method="POST">
-        <h3><?= $a.' + '.$b; ?>  </h3>
-        <h3> <?= $hasil; ?></h3>
+        <h3> </h3>
+        <h3></h3>
     
         <input type="number" name="jawab" id="jawab">
         <button type="submit" name="submit"">Submit</button>

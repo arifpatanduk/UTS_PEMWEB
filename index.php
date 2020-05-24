@@ -1,3 +1,24 @@
+<?php 
+
+session_start();
+require 'function.php';
+
+if ( isset($_COOKIE['join'])) {
+    if ( isset($_COOKIE['join']) == 'true') {
+        $_SESSION['join'] = true;
+    }
+}
+else if ( !isset($_COOKIE['join'])) {
+    header("location: login.php");
+    exit;
+}
+
+$nama = $_SESSION['nama'];
+$main = query("SELECT * FROM uts WHERE nama = '$nama' ");
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,7 +47,9 @@
             <div class="card">
                 <div class="card-header">
                     <center>
-                        Hello <strong>ARIF</strong>, selamat datang kembali di permainan ini!
+                        Hello 
+                        <strong> <?= $_SESSION['nama']; ?> </strong>, 
+                        selamat datang kembali di permainan ini!
                         
                     </center>    
                 </div>
@@ -36,19 +59,21 @@
                         <h3>
                             <span class="badge badge-danger">
                                 <div style="font-size: 10px" class="mb-1">LIVES</div>
-                                <i class="fas fa-heart"></i> 5
+                                <i class="fas fa-heart"></i> <?= $main['lives']; ?>
                                 
                             </span>
                             <span class="badge badge-success">
                                 <div style="font-size: 10px" class="mb-1">SCORE</div>
-                                <i class="fas fa-coins"></i> 5
+                                <i class="fas fa-coins"></i> <?= $main['score']; ?>
                             </span>
                         </h3>
-                        <!-- <form class="form-inline mt-2" method="POST" action=""> -->
-                        <button type="submit" name="submit" class="btn btn-primary mb-2 mt-2">
+                        
+                        <a href="soal.php">
+                            <button type="submit" name="submit" class="btn btn-primary mb-2 mt-2">
                                 START GAME <i class="fas fa-flag-checkered"></i>
                             </button>
-                        <!-- </form> -->
+                        </a>
+
                         <p>
                             Bukan Anda? Klik <a href="">di sini</a>
                         </p>

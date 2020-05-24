@@ -1,14 +1,12 @@
 <?php
 
 session_start();
-$nilai = '';
+require "function.php";
 
-if ($_POST['jawab'] == $_SESSION['hasil']) {
-    $nilai = 'BENAR';
-}
-elseif ($_POST['jawab'] != $_SESSION['hasil']) {
-    $nilai = 'SALAH';
-}
+$tampil = proses($_POST);
+
+$nama = $_SESSION['nama'];
+$main = query("SELECT * FROM uts WHERE nama = '$nama' ");
 
 ?>
 <!DOCTYPE html>
@@ -27,8 +25,7 @@ elseif ($_POST['jawab'] != $_SESSION['hasil']) {
         <div class="card">
             <div class="card-header">
                 <center>
-                    Hello <strong>ARIF</strong>, selamat jawaban Anda 
-                    <strong><?= $nilai; ?></strong>
+                    Hello <strong>ARIF</strong>, <?= $tampil; ?>
                 </center>    
             </div>
 
@@ -37,18 +34,18 @@ elseif ($_POST['jawab'] != $_SESSION['hasil']) {
                     <h3>
                         <span class="badge badge-danger">
                             <div style="font-size: 10px" class="mb-1">LIVES</div>
-                            <i class="fas fa-heart"></i> 5
+                            <i class="fas fa-heart"></i> <?= $main['lives']; ?>
                             
                         </span>
                         <span class="badge badge-success">
                             <div style="font-size: 10px" class="mb-1">SCORE</div>
-                            <i class="fas fa-coins"></i> 5
+                            <i class="fas fa-coins"></i> <?= $main['score']; ?>
                         </span>
                         
                     </h3>
                     
                     <!-- <form class="form-inline mt-2" method="POST" action=""> -->
-                    <a href="test.php">    
+                    <a href="soal.php">    
                         <button type="submit" name="submit" class="btn btn-primary mb-2">
                             Soal Selanjutnya <i class="fa fa-arrow-circle-right"></i>
                         </button>

@@ -67,7 +67,7 @@
     <script>
     $(document).ready(function(){
         $('#tabel-data').DataTable();
-        "paging":false
+        'paging':false;
         });
     </script>
 

@@ -1,9 +1,13 @@
 <?php
 
+session_start();
+
 require 'function.php';
 
 if (isset($_POST['submit'])) {
-    if (login($_POST) > 0 ) {
+    $_SESSION['nama'] = $_POST['nama'];
+    if (login($_POST) > 0 ) {    
+        setcookie('join', 'true', strtotime('+1 year'));
         echo "<script>
         alert('Berhasil login')
         document.location.href = 'index.php'
