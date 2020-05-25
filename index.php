@@ -74,9 +74,12 @@ $main = query("SELECT * FROM uts WHERE nama = '$nama' ");
                             </button>
                         </a>
 
-                        <p>
-                            Bukan Anda? Klik <a href="">di sini</a>
-                        </p>
+                        <!-- <form action="" method="POST"> -->
+                            <p>
+                                Bukan Anda? Klik <a href="login.php">di sini</a>
+                            </p>
+                        <!-- </form> -->
+                        
                     </center>    
                 </div>
             </div>

@@ -30,6 +30,9 @@ $_SESSION['proses'] = 'yes';
     <link rel="icon" type="image/png" href="img/logo.png">
     
     <script src="https://kit.fontawesome.com/5994dec7bb.js" crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="src/jquery.progressBarTimer.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>  
 
@@ -47,13 +50,22 @@ $_SESSION['proses'] = 'yes';
                 </div>
             </div>
             <div class="card-body">
+                <div id="timer"></div>
                 <h4>Berapakah <?= $a.' + '.$b; ?> ? </h4>
-                <form class="form-inline mt-2" method="POST" action="proses.php">
+                <form class="form-inline mt-2" method="POST" action="proses.php" id="form">
                     <input type="number" class="form-control mb-2 mr-sm-2" id="jawab" placeholder="Jawaban...." name="jawab" required autofocus>
-                    <button type="submit" name="submit" class="btn btn-primary mb-2">Submit</button>
+                    <button type="submit" id="submit" name="submit" class="btn btn-primary mb-2">Submit</button>
                 </form>
             </div>
         </div>
     </div>
+
+    <script>
+        $('#timer').progressBarTimer({ autoStart: true, timeLimit: 15, warningThreshold: 3, onFinish: function() { 
+            if(document.forms["form"]["jawab"].value == "")
+            document.forms["form"]["jawab"].value = 0;
+            document.getElementById("submit").click();
+            }});
+    </script>
 </body>
 </html>
