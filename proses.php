@@ -38,7 +38,7 @@ if ( $main['lives'] == '0') {
         <div class="card">
             <div class="card-header">
                 <center>
-                    Hello <strong>ARIF</strong>, <?= $tampil; ?>
+                    Hello <strong><?= $_COOKIE['nama']; ?></strong>, <?= $tampil; ?>
                 </center>    
             </div>
 

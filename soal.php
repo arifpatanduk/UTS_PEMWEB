@@ -39,7 +39,7 @@ $_SESSION['proses'] = 'yes';
     <div class="container mt-3">
         <div class="card">
             <div class="card-header">
-                Hello <strong>ARIF</strong> tetap semangat ya! You can do the best! 
+                Hello <strong><?= $_COOKIE['nama']; ?></strong> tetap semangat ya! You can do the best! 
                 <div>
                     <span class="badge badge-danger">
                         <i class="fas fa-heart"></i> <?= $main['lives']; ?>

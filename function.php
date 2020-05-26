@@ -1,6 +1,6 @@
 <?php 
 
-$conn = mysqli_connect('localhost', 'root', '', 'pemweb');
+$conn = mysqli_connect('sql312.epizy.com', 'epiz_25857160', 'EzUN8oAt0ZBsPdz', 'epiz_25857160_pemweb');
 
 function query($query) {
     global  $conn;
@@ -16,8 +16,8 @@ function query($query) {
 function login($data){
     global $conn;
 
-    $nama = $data['nama'];
-    $email = $data['email'];
+    $nama = htmlspecialchars($data['nama']);
+    $email = htmlspecialchars($data['email']);
 
     $query = "INSERT INTO uts VALUES 
     ('', '$nama', '$email', 5, 0)";

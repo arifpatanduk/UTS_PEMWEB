@@ -13,8 +13,8 @@ $main = query("SELECT * FROM uts WHERE nama = '$nama' ");
 
 if ( isset($_POST['selesai'])) {
     // mengakhiri cookie
-    setcookie('nama', '', 0);
-    setcookie('join', '', 0);
+    setcookie('nama', '', time()-3600);
+    setcookie('join', '', time()-3600);
     header("Location:hallOfFame.php");
 }
 if ( isset($_POST['ulang'])) {
